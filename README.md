@@ -1,11 +1,11 @@
 # Module06MVVM
 
 ## Add Records
-[Adding Records](MVVM Screenshots/AddRecords.png)
+![Adding Records](MVVMScreenshots/AddRecords.png)
 
 ## Update Records
-![Updating Records](MVVM Screenshots/UpdateRecords.png)
+![Updating Records](MVVMScreenshots/UpdateRecords.png)
 
 ## Delete Records (Undeleted and Deleted
-![Undeleted](MVVM Screenshots/Undeleted.png)
-![Deleted](MVVM Screenshots/Deleted.png)
+![Undeleted](MVVMScreenshots/Undeleted.png)
+![Deleted](MVVMScreenshots/Deleted.png)
