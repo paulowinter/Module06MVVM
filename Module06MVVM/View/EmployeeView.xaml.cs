@@ -40,6 +40,8 @@ namespace Module06MVVM.View
                 txtName.Text = obj.Name;
                 txtEmail.Text = obj.Email;
                 txtAddress.Text = obj.Address;
+
+                _isUpdate |= true;
                          
             }
         }
@@ -51,7 +53,16 @@ namespace Module06MVVM.View
             obj.Email = txtEmail.Text;
             obj.Address = txtAddress.Text;
 
-            _viewModel.InsertEmployee(obj);
+            if(_isUpdate) 
+            {
+                obj.Id = employeeID;
+                await _viewModel.UpdateEmployee(obj);
+            }
+            else
+            {
+                _viewModel.InsertEmployee(obj);
+            }
+
 
             await this.Navigation.PopAsync();
         }

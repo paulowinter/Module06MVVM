@@ -50,5 +50,21 @@ namespace Module06MVVM.ViewModel
             return res;
         }
 
+        public async Task<int> UpdateEmployee(EmployeeModel obj)
+        {
+            var _dbContext = GetContext();
+            _dbContext.Employees.Update(obj);
+            int c = await _dbContext.SaveChangesAsync();
+            return c;
+        }
+
+        public int DeleteEmployee(EmployeeModel obj)
+        {
+            var _dbContext = GetContext();
+            _dbContext.Employees.Remove(obj);
+            int c = _dbContext.SaveChanges();
+            return c;
+        }
+
     }
 }

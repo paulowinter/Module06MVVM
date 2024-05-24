@@ -6,7 +6,7 @@
         <StackLayout>
             <Button Text="Add New Record" Clicked="btnAddRecord"/>
 
-            <ListView x:Name="lstData" HasUnevenRows="True">
+            <ListView x:Name="lstData" HasUnevenRows="True" ItemSelected="lsData_ItemSelected">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>

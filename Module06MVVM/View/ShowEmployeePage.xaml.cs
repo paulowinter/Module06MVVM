@@ -1,4 +1,5 @@
-﻿using Module06MVVM.Model;
+﻿using Microsoft.EntityFrameworkCore.Migrations.Operations;
+using Module06MVVM.Model;
 using Module06MVVM.ViewModel;
 
 using System;
@@ -39,6 +40,31 @@ namespace Module06MVVM.View
         private void btnAddRecord(object sender, EventArgs e)
         {
             this.Navigation.PushAsync(new EmployeeView());
+        }
+
+        private async void lsData_ItemSelected(object sender, SelectedItemChangedEventArgs e)
+        {
+            if (e.SelectedItem != null)
+            {
+                EmployeeModel obj = (EmployeeModel)e.SelectedItem;
+                string res = await DisplayActionSheet("Operation", "Cancel", null, "Update", "Delete");
+
+                switch (res)
+                {
+                    case "Update":
+                        await this.Navigation.PushAsync(new EmployeeView(obj));
+                        break;
+
+                    case "Delete":
+                        viewModel.DeleteEmployee(obj);
+                        showEmployeePage();
+                            break;
+
+
+                }
+
+                lstData.SelectedItem = null;
+            }
         }
     }
 }
